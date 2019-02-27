@@ -1,5 +1,4 @@
- <!--<div id="preloader"></div>--> 
-
+<div class="" *ngIf="show; else loading ">
   <header>
     <!-- header-area start -->
     <div id="sticker" class="header-area">
@@ -28,33 +27,26 @@
               <div class="collapse navbar-collapse main-menu bs-example-navbar-collapse-1" id="navbar-example">
                 <ul class="nav navbar-nav navbar-right">
                   <li class="active">
-                    <a class="page-scroll" href="#home">Home</a>
+                    <a class="page-scroll" href="#home">{{data.secciones.home.navbar}}</a>
                   </li>
                   <li>
-                    <a class="page-scroll" href="#about">About</a>
+                    <a class="page-scroll" href="#about">{{data.secciones.about.navbar}}</a>
                   </li>
                   <li>
-                    <a class="page-scroll" href="#services">Services</a>
+                    <a class="page-scroll" href="#services">{{data.secciones.servicios.navbar}}</a>
                   </li>
                   <li>
-                    <a class="page-scroll" href="#team">Team</a>
+                    <a class="page-scroll" href="#team">{{data.secciones.equipo.navbar}}</a>
                   </li>
                   <li>
-                    <a class="page-scroll" href="#portfolio">Portfolio</a>
-                  </li>
-
-                  <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Drop Down<span class="caret"></span></a>
-                    <ul class="dropdown-menu" role="menu">
-                      <li><a href=# >Drop Down 1</a></li>
-                      <li><a href=# >Drop Down 2</a></li>
-                    </ul> 
+                    <a class="page-scroll" href="#portfolio">{{data.secciones.galeria.navbar}}</a>
                   </li>
 
                   <li>
-                    <a class="page-scroll" href="#blog">Blog</a>
+                    <a class="page-scroll" href="#blog">{{data.secciones.noticias.navbar}}</a>
                   </li>
                   <li>
-                    <a class="page-scroll" href="#contact">Contact</a>
+                    <a class="page-scroll" href="#contact">{{data.secciones.contacto.navbar}}</a>
                   </li>
                 </ul>
               </div>
@@ -86,16 +78,11 @@
               <div class="slider-content">
                 <!-- layer 1 -->
                 <div class="layer-1-1 hidden-xs wow slideInDown" data-wow-duration="2s" data-wow-delay=".2s">
-                  <h2 class="title1">The Best Business Information </h2>
+                  <h2 class="title1">{{data.secciones.home.titulo}}</h2>
                 </div>
                 <!-- layer 2 -->
                 <div class="layer-1-2 wow slideInUp" data-wow-duration="2s" data-wow-delay=".1s">
-                  <h1 class="title2">We're In The Business Of Helping You Start Your Business</h1>
-                </div>
-                <!-- layer 3 -->
-                <div class="layer-1-3 hidden-xs wow slideInUp" data-wow-duration="2s" data-wow-delay=".2s">
-                  <a class="ready-btn right-btn page-scroll" href="#services">See Services</a>
-                  <a class="ready-btn page-scroll" href="#about">Learn More</a>
+                  <h1 class="title2">{{data.secciones.home.subtitulo}}</h1>
                 </div>
               </div>
             </div>
@@ -162,7 +149,7 @@
       <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12">
           <div class="section-headline text-center">
-            <h2>About eBusiness</h2>
+            <h2>{{data.secciones.about.titulo}}</h2>
           </div>
         </div>
       </div>
@@ -172,7 +159,7 @@
           <div class="well-left">
             <div class="single-well">
               <a href="#">
-								  <img src="assets/img/about/1.jpg" alt="">
+								  <img src="{{data.secciones.about.imagen}}" alt="">
 								</a>
             </div>
           </div>
@@ -181,29 +168,12 @@
         <div class="col-md-6 col-sm-6 col-xs-12">
           <div class="well-middle">
             <div class="single-well">
-              <a href="#">
-                <h4 class="sec-head">project Maintenance</h4>
+              <a >
+                <h4 class="sec-head">{{data.secciones.about.subtitulo}}</h4>
               </a>
               <p>
-                Redug Lagre dolor sit amet, consectetur adipisicing elit. Itaque quas officiis iure aspernatur sit adipisci quaerat unde at nequeRedug Lagre dolor sit amet, consectetur adipisicing elit. Itaque quas officiis iure
+                {{data.secciones.about.descripcion}}
               </p>
-              <ul>
-                <li>
-                  <i class="fa fa-check"></i> Interior design Package
-                </li>
-                <li>
-                  <i class="fa fa-check"></i> Building House
-                </li>
-                <li>
-                  <i class="fa fa-check"></i> Reparing of Residentail Roof
-                </li>
-                <li>
-                  <i class="fa fa-check"></i> Renovaion of Commercial Office
-                </li>
-                <li>
-                  <i class="fa fa-check"></i> Make Quality Products
-                </li>
-              </ul>
             </div>
           </div>
         </div>
@@ -219,122 +189,38 @@
       <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12">
           <div class="section-headline services-head text-center">
-            <h2>Our Services</h2>
+            <h2>{{data.secciones.servicios.titulo}}</h2>
           </div>
         </div>
       </div>
       <div class="row text-center">
         <div class="services-contents">
           <!-- Start Left services -->
-          <div class="col-md-4 col-sm-4 col-xs-12">
+          <div *ngFor="let landing of data.secciones.servicios.servicio" 
+          class="col-md-4 col-sm-4 col-xs-12">
             <div class="about-move">
               <div class="services-details">
                 <div class="single-services">
-                  <a class="services-icon" href="#">
-											<i class="fa fa-code"></i>
-										</a>
-                  <h4>Expert Coder</h4>
-                  <p>
-                    will have to make sure the prototype looks finished by inserting text or photo.make sure the prototype looks finished by.
-                  </p>
+                  <a href="#">
+                    <img src="{{landing.imagen}}" alt="">
+                  </a>
+                  <h4>{{landing.titulo}}</h4>
+                  <p>{{landing.descripcion}}</p>
                 </div>
               </div>
               <!-- end about-details -->
             </div>
           </div>
-          <div class="col-md-4 col-sm-4 col-xs-12">
-            <div class="about-move">
-              <div class="services-details">
-                <div class="single-services">
-                  <a class="services-icon" href="#">
-											<i class="fa fa-camera-retro"></i>
-										</a>
-                  <h4>Creative Designer</h4>
-                  <p>
-                    will have to make sure the prototype looks finished by inserting text or photo.make sure the prototype looks finished by.
-                  </p>
-                </div>
-              </div>
-              <!-- end about-details -->
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-4 col-xs-12">
-            <!-- end col-md-4 -->
-            <div class=" about-move">
-              <div class="services-details">
-                <div class="single-services">
-                  <a class="services-icon" href="#">
-											<i class="fa fa-wordpress"></i>
-										</a>
-                  <h4>Wordpress Developer</h4>
-                  <p>
-                    will have to make sure the prototype looks finished by inserting text or photo.make sure the prototype looks finished by.
-                  </p>
-                </div>
-              </div>
-              <!-- end about-details -->
-            </div>
-          </div>
-          <div class="col-md-4 col-sm-4 col-xs-12">
-            <!-- end col-md-4 -->
-            <div class=" about-move">
-              <div class="services-details">
-                <div class="single-services">
-                  <a class="services-icon" href="#">
-											<i class="fa fa-camera-retro"></i>
-										</a>
-                  <h4>Social Marketer </h4>
-                  <p>
-                    will have to make sure the prototype looks finished by inserting text or photo.make sure the prototype looks finished by.
-                  </p>
-                </div>
-              </div>
-              <!-- end about-details -->
-            </div>
-          </div>
-          <!-- End Left services -->
-          <div class="col-md-4 col-sm-4 col-xs-12">
-            <!-- end col-md-4 -->
-            <div class=" about-move">
-              <div class="services-details">
-                <div class="single-services">
-                  <a class="services-icon" href="#">
-											<i class="fa fa-bar-chart"></i>
-										</a>
-                  <h4>Seo Expart</h4>
-                  <p>
-                    will have to make sure the prototype looks finished by inserting text or photo.make sure the prototype looks finished by.
-                  </p>
-                </div>
-              </div>
-              <!-- end about-details -->
-            </div>
-          </div>
-          <!-- End Left services -->
-          <div class="col-md-4 col-sm-4 col-xs-12">
-            <!-- end col-md-4 -->
-            <div class=" about-move">
-              <div class="services-details">
-                <div class="single-services">
-                  <a class="services-icon" href="#">
-											<i class="fa fa-ticket"></i>
-										</a>
-                  <h4>24/7 Support</h4>
-                  <p>
-                    will have to make sure the prototype looks finished by inserting text or photo.make sure the prototype looks finished by.
-                  </p>
-                </div>
-              </div>
-              <!-- end about-details -->
-            </div>
-          </div>
+
+          
+        
         </div>
       </div>
     </div>
   </div>
   <!-- End Service area -->
 
-  <!-- our-skill-area start -->
+  <!-- our-grafica start -->
   <div class="our-skill-area fix hidden-sm">
     <div class="test-overly"></div>
     <div class="skill-bg area-padding-2">
@@ -343,41 +229,12 @@
         <div class="row">
           <div class="skill-text">
             <!-- single-skill start -->
-            <div class="col-xs-12 col-sm-3 col-md-3 text-center">
+            <div *ngFor="let landing of data.secciones.estadisticas" 
+            class="col-xs-12 col-sm-3 col-md-3 text-center">
               <div class="single-skill">
                 <div class="progress-circular">
-                  <input type="text" class="knob" value="0" data-rel="95" data-linecap="round" data-width="175" data-bgcolor="#fff" data-fgcolor="#3EC1D5" data-thickness=".20" data-readonly="true" disabled>
-                  <h3 class="progress-h4">Web Design</h3>
-                </div>
-              </div>
-            </div>
-            <!-- single-skill end -->
-            <!-- single-skill start -->
-            <div class="col-xs-12 col-sm-3 col-md-3 text-center">
-              <div class="single-skill">
-                <div class="progress-circular">
-                  <input type="text" class="knob" value="0" data-rel="85" data-linecap="round" data-width="175" data-bgcolor="#fff" data-fgcolor="#3EC1D5" data-thickness=".20" data-readonly="true" disabled>
-                  <h3 class="progress-h4">Graphics Design</h3>
-                </div>
-              </div>
-            </div>
-            <!-- single-skill end -->
-            <!-- single-skill start -->
-            <div class="col-xs-12 col-sm-3 col-md-3 text-center">
-              <div class="single-skill">
-                <div class="progress-circular">
-                  <input type="text" class="knob" value="0" data-rel="75" data-linecap="round" data-width="175" data-bgcolor="#fff" data-fgcolor="#3EC1D5" data-thickness=".20" data-readonly="true" disabled>
-                  <h3 class="progress-h4">Php Developer</h3>
-                </div>
-              </div>
-            </div>
-            <!-- single-skill end -->
-            <!-- single-skill start -->
-            <div class="col-xs-12 col-sm-3 col-md-3 text-center">
-              <div class="single-skill">
-                <div class="progress-circular">
-                  <input type="text" class="knob" value="0" data-rel="65" data-linecap="round" data-width="175" data-bgcolor="#fff" data-fgcolor="#3EC1D5" data-thickness=".20" data-readonly="true" disabled>
-                  <h3 class="progress-h4">Java Script</h3>
+                  <input type="text" class="knob" value="{{landing.grafica}}" data-rel="95" data-linecap="round" data-width="175" data-bgcolor="#fff" data-fgcolor="#3EC1D5" data-thickness=".20" data-readonly="true" disabled>
+                  <h3 class="progress-h4">{{landing.titulo}}</h3>
                 </div>
               </div>
             </div>
@@ -387,39 +244,41 @@
       </div>
     </div>
   </div>
-  <!-- our-skill-area end -->
+  <!-- our-grafica end -->
+
   <!-- Start team Area -->
   <div id="team" class="our-team-area area-padding">
     <div class="container">
       <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12">
           <div class="section-headline text-center">
-            <h2>Our special Team</h2>
+            <h2>{{data.secciones.equipo.titulo}}</h2>
           </div>
         </div>
       </div>
       <div class="row">
         <div class="team-top">
-          <div class="col-md-3 col-sm-3 col-xs-12">
+          <div *ngFor="let landing of data.secciones.equipo.personas"
+          class="col-md-3 col-sm-3 col-xs-12">
             <div class="single-team-member">
               <div class="team-img">
                 <a href="#">
-										<img src="assets/img/team/1.jpg" alt="">
+										<img src="{{landing.imagen}}" alt="">
 									</a>
                 <div class="team-social-icon text-center">
                   <ul>
                     <li>
-                      <a href="#">
+                      <a href="{{landing.facebook}}">
 													<i class="fa fa-facebook"></i>
 												</a>
                     </li>
                     <li>
-                      <a href="#">
+                      <a href="{{landing.twitter}}">
 													<i class="fa fa-twitter"></i>
 												</a>
                     </li>
                     <li>
-                      <a href="#">
+                      <a href="{{landing.instagram}}}">
 													<i class="fa fa-instagram"></i>
 												</a>
                     </li>
@@ -427,111 +286,12 @@
                 </div>
               </div>
               <div class="team-content text-center">
-                <h4>Jhon Mickel</h4>
-                <p>Seo</p>
+                <h4>{{landing.titulo}}</h4>
+                <p>{{landing.subtitulo}}</p>
               </div>
             </div>
           </div>
-          <!-- End column -->
-          <div class="col-md-3 col-sm-3 col-xs-12">
-            <div class="single-team-member">
-              <div class="team-img">
-                <a href="#">
-										<img src="assets/img/team/2.jpg" alt="">
-									</a>
-                <div class="team-social-icon text-center">
-                  <ul>
-                    <li>
-                      <a href="#">
-													<i class="fa fa-facebook"></i>
-												</a>
-                    </li>
-                    <li>
-                      <a href="#">
-													<i class="fa fa-twitter"></i>
-												</a>
-                    </li>
-                    <li>
-                      <a href="#">
-													<i class="fa fa-instagram"></i>
-												</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <div class="team-content text-center">
-                <h4>Andrew Arnold</h4>
-                <p>Web Developer</p>
-              </div>
-            </div>
-          </div>
-          <!-- End column -->
-          <div class="col-md-3 col-sm-3 col-xs-12">
-            <div class="single-team-member">
-              <div class="team-img">
-                <a href="#">
-										<img src="assets/img/team/3.jpg" alt="">
-									</a>
-                <div class="team-social-icon text-center">
-                  <ul>
-                    <li>
-                      <a href="#">
-													<i class="fa fa-facebook"></i>
-												</a>
-                    </li>
-                    <li>
-                      <a href="#">
-													<i class="fa fa-twitter"></i>
-												</a>
-                    </li>
-                    <li>
-                      <a href="#">
-													<i class="fa fa-instagram"></i>
-												</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <div class="team-content text-center">
-                <h4>Lellien Linda</h4>
-                <p>Web Design</p>
-              </div>
-            </div>
-          </div>
-          <!-- End column -->
-          <div class="col-md-3 col-sm-3 col-xs-12">
-            <div class="single-team-member">
-              <div class="team-img">
-                <a href="#">
-										<img src="assets/img/team/4.jpg" alt="">
-									</a>
-                <div class="team-social-icon text-center">
-                  <ul>
-                    <li>
-                      <a href="#">
-													<i class="fa fa-facebook"></i>
-												</a>
-                    </li>
-                    <li>
-                      <a href="#">
-													<i class="fa fa-twitter"></i>
-												</a>
-                    </li>
-                    <li>
-                      <a href="#">
-													<i class="fa fa-instagram"></i>
-												</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <div class="team-content text-center">
-                <h4>Jhon Powel</h4>
-                <p>Seo Expert</p>
-              </div>
-            </div>
-          </div>
-          <!-- End column -->
+         
         </div>
       </div>
     </div>
@@ -543,61 +303,44 @@
     <div class="work-us">
       <div class="work-left-text">
         <a href="#">
-						<img src="assets/img/about/2.jpg" alt="">
+						<img src="{{data.secciones.imagencontacto.imagen}}" alt="">
 					</a>
       </div>
       <div class="work-right-text text-center">
-        <h2>working with us</h2>
-        <h5>Web Design, Ready Home, Construction and Co-operate Outstanding Buildings.</h5>
+        <h2>{{data.secciones.imagencontacto.titulo}}</h2>
+        <h5>{{data.secciones.imagencontacto.subtitulo}}</h5>
         <a href="#contact" class="ready-btn">Contact us</a>
       </div>
     </div>
   </div>
   <!-- End reviews Area -->
 
-  <!-- Start portfolio Area -->
+  <!-- Start galeria Area -->
   <div id="portfolio" class="portfolio-area area-padding fix">
     <div class="container">
       <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
           <div class="section-headline text-center">
-            <h2>Our Portfolio</h2>
+            <h2>{{data.secciones.galeria.titulo}}</h2>
           </div>
         </div>
       </div>
       <div class="row">
         <!-- Start Portfolio -page -->
-        <div class="awesome-project-1 fix">
-          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <div class="awesome-menu ">
-              <ul class="project-menu">
-                <li>
-                  <a href="#" class="active" data-filter="*">All</a>
-                </li>
-                <li>
-                  <a href="#" data-filter=".development">Development</a>
-                </li>
-                <li>
-                  <a href="#" data-filter=".design">Design</a>
-                </li>
-                <li>
-                  <a href="#" data-filter=".photo">Photoshop</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
         <div class="awesome-project-content">
+
+
           <!-- single-awesome-project start -->
-          <div class="col-md-4 col-sm-4 col-xs-12 design development">
+          <div *ngFor="let landing of data.secciones.galeria.imagenes" 
+          class="col-md-4 col-sm-4 col-xs-12 design development">
             <div class="single-awesome-project">
               <div class="awesome-img">
-                <a href="#"><img src="assets/img/portfolio/1.jpg" alt="" /></a>
+                <a href="#"><img src="{{landing.imagen}}" alt="" /></a>
                 <div class="add-actions text-center">
                   <div class="project-dec">
-                    <a class="venobox" data-gall="myGallery" href="assets/img/portfolio/1.jpg">
-                      <h4>Business City</h4>
-                      <span>Web Development</span>
+                    <a class="venobox" data-gall="myGallery" href="{{landing.imagen}}">
+                      <h4>{{landing.titulo}}</h4>
+                      <span>{{landing.subtitulo}}</span>
                     </a>
                   </div>
                 </div>
@@ -605,223 +348,20 @@
             </div>
           </div>
           <!-- single-awesome-project end -->
-          <!-- single-awesome-project start -->
-          <div class="col-md-4 col-sm-4 col-xs-12 photo">
-            <div class="single-awesome-project">
-              <div class="awesome-img">
-                <a href="#"><img src="assets/img/portfolio/2.jpg" alt="" /></a>
-                <div class="add-actions text-center">
-                  <div class="project-dec">
-                    <a class="venobox" data-gall="myGallery" href="assets/img/portfolio/2.jpg">
-                      <h4>Blue Sea</h4>
-                      <span>Photosho</span>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- single-awesome-project end -->
-          <!-- single-awesome-project start -->
-          <div class="col-md-4 col-sm-4 col-xs-12 design">
-            <div class="single-awesome-project">
-              <div class="awesome-img">
-                <a href="#"><img src="assets/img/portfolio/3.jpg" alt="" /></a>
-                <div class="add-actions text-center">
-                  <div class="project-dec">
-                    <a class="venobox" data-gall="myGallery" href="assets/img/portfolio/3.jpg">
-                      <h4>Beautiful Nature</h4>
-                      <span>Web Design</span>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- single-awesome-project end -->
-          <!-- single-awesome-project start -->
-          <div class="col-md-4 col-sm-4 col-xs-12 photo development">
-            <div class="single-awesome-project">
-              <div class="awesome-img">
-                <a href="#"><img src="assets/img/portfolio/4.jpg" alt="" /></a>
-                <div class="add-actions text-center">
-                  <div class="project-dec">
-                    <a class="venobox" data-gall="myGallery" href="assets/img/portfolio/4.jpg">
-                      <h4>Creative Team</h4>
-                      <span>Web design</span>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- single-awesome-project end -->
-          <!-- single-awesome-project start -->
-          <div class="col-md-4 col-sm-4 col-xs-12 development">
-            <div class="single-awesome-project">
-              <div class="awesome-img">
-                <a href="#"><img src="assets/img/portfolio/5.jpg" alt="" /></a>
-                <div class="add-actions text-center text-center">
-                  <div class="project-dec">
-                    <a class="venobox" data-gall="myGallery" href="assets/img/portfolio/5.jpg">
-                      <h4>Beautiful Flower</h4>
-                      <span>Web Development</span>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- single-awesome-project end -->
-          <!-- single-awesome-project start -->
-          <div class="col-md-4 col-sm-4 col-xs-12 design photo">
-            <div class="single-awesome-project">
-              <div class="awesome-img">
-                <a href="#"><img src="assets/img/portfolio/6.jpg" alt="" /></a>
-                <div class="add-actions text-center">
-                  <div class="project-dec">
-                    <a class="venobox" data-gall="myGallery" href="assets/img/portfolio/6.jpg">
-                      <h4>Night Hill</h4>
-                      <span>Photoshop</span>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- single-awesome-project end -->
+
+
+         
+
+
+
         </div>
       </div>
     </div>
   </div>
-  <!-- awesome-portfolio end -->
-  <!-- Start Blog Area -->
-  <div id="blog" class="blog-area">
-    <div class="blog-inner area-padding">
-      <div class="blog-overly"></div>
-      <div class="container ">
-        <div class="row">
-          <div class="col-md-12 col-sm-12 col-xs-12">
-            <div class="section-headline text-center">
-              <h2>Latest News</h2>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <!-- Start Left Blog -->
-          <div class="col-md-4 col-sm-4 col-xs-12">
-            <div class="single-blog">
-              <div class="single-blog-img">
-                <a href="blog.html">
-										<img src="assets/img/blog/1.jpg" alt="">
-									</a>
-              </div>
-              <div class="blog-meta">
-                <span class="comments-type">
-										<i class="fa fa-comment-o"></i>
-										<a href="#">13 comments</a>
-									</span>
-                <span class="date-type">
-										<i class="fa fa-calendar"></i>2016-03-05 / 09:10:16
-									</span>
-              </div>
-              <div class="blog-text">
-                <h4>
-                                        <a href="blog.html">Assumenda repud eum veniam</a>
-									</h4>
-                <p>
-                  Lorem ipsum dolor sit amet conse adipis elit Assumenda repud eum veniam optio modi sit explicabo nisi magnam quibusdam.sit amet conse adipis elit Assumenda repud eum veniam optio modi sit explicabo nisi magnam quibusdam.
-                </p>
-              </div>
-              <span>
-									<a href="blog.html" class="ready-btn">Read more</a>
-								</span>
-            </div>
-            <!-- Start single blog -->
-          </div>
-          <!-- End Left Blog-->
-          <!-- Start Left Blog -->
-          <div class="col-md-4 col-sm-4 col-xs-12">
-            <div class="single-blog">
-              <div class="single-blog-img">
-                <a href="blog.html">
-										<img src="assets/img/blog/2.jpg" alt="">
-									</a>
-              </div>
-              <div class="blog-meta">
-                <span class="comments-type">
-										<i class="fa fa-comment-o"></i>
-										<a href="#">130 comments</a>
-									</span>
-                <span class="date-type">
-										<i class="fa fa-calendar"></i>2016-03-05 / 09:10:16
-									</span>
-              </div>
-              <div class="blog-text">
-                <h4>
-                                        <a href="blog.html">Explicabo magnam quibusdam.</a>
-									</h4>
-                <p>
-                  Lorem ipsum dolor sit amet conse adipis elit Assumenda repud eum veniam optio modi sit explicabo nisi magnam quibusdam.sit amet conse adipis elit Assumenda repud eum veniam optio modi sit explicabo nisi magnam quibusdam.
-                </p>
-              </div>
-              <span>
-									<a href="blog.html" class="ready-btn">Read more</a>
-								</span>
-            </div>
-            <!-- Start single blog -->
-          </div>
-          <!-- End Left Blog-->
-          <!-- Start Right Blog-->
-          <div class="col-md-4 col-sm-4 col-xs-12">
-            <div class="single-blog">
-              <div class="single-blog-img">
-                <a href="blog.html">
-										<img src="assets/img/blog/3.jpg" alt="">
-									</a>
-              </div>
-              <div class="blog-meta">
-                <span class="comments-type">
-										<i class="fa fa-comment-o"></i>
-										<a href="#">10 comments</a>
-									</span>
-                <span class="date-type">
-										<i class="fa fa-calendar"></i>2016-03-05 / 09:10:16
-									</span>
-              </div>
-              <div class="blog-text">
-                <h4>
-                                        <a href="blog.html">Lorem ipsum dolor sit amet</a>
-									</h4>
-                <p>
-                  Lorem ipsum dolor sit amet conse adipis elit Assumenda repud eum veniam optio modi sit explicabo nisi magnam quibusdam.sit amet conse adipis elit Assumenda repud eum veniam optio modi sit explicabo nisi magnam quibusdam.
-                </p>
-              </div>
-              <span>
-									<a href="blog.html" class="ready-btn">Read more</a>
-								</span>
-            </div>
-          </div>
-          <!-- End Right Blog-->
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- End Blog -->
-  <!-- Start Suscrive Area -->
-  <div class="suscribe-area">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs=12">
-          <div class="suscribe-text text-center">
-            <h3>Welcome to our eBusiness company</h3>
-            <a class="sus-btn" href="#">Get A quate</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- End Suscrive Area -->
+  <!-- awesome-galeria end -->
+
+ 
+
   <!-- Start contact Area -->
   <div id="contact" class="contact-area">
     <div class="contact-inner area-padding">
@@ -830,7 +370,7 @@
         <div class="row">
           <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="section-headline text-center">
-              <h2>Contact us</h2>
+              <h2>{{data.secciones.contacto.titulo}}</h2>
             </div>
           </div>
         </div>
@@ -841,8 +381,7 @@
               <div class="single-icon">
                 <i class="fa fa-mobile"></i>
                 <p>
-                  Call: +1 5589 55488 55<br>
-                  <span>Monday-Friday (9am-5pm)</span>
+                  Teléfono:{{data.secciones.contacto.telefono}}<br>
                 </p>
               </div>
             </div>
@@ -853,8 +392,7 @@
               <div class="single-icon">
                 <i class="fa fa-envelope-o"></i>
                 <p>
-                  Email: info@example.com<br>
-                  <span>Web: www.example.com</span>
+                  Email: {{data.secciones.contacto.email}}<br>
                 </p>
               </div>
             </div>
@@ -865,8 +403,7 @@
               <div class="single-icon">
                 <i class="fa fa-map-marker"></i>
                 <p>
-                  Location: A108 Adam Street<br>
-                  <span>NY 535022, USA</span>
+                  Lugar: {{data.secciones.contacto.lugar}}<br>
                 </p>
               </div>
             </div>
@@ -879,71 +416,6 @@
 
   <!-- Start Footer bottom Area -->
   <footer>
-    <div class="footer-area">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-4 col-sm-4 col-xs-12">
-            <div class="footer-content">
-              <div class="footer-head">
-                <div class="footer-logo">
-                  <h2><span>e</span>Business</h2>
-                </div>
-
-                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis.</p>
-                <div class="footer-icons">
-                  <ul>
-                    <li>
-                      <a href="#"><i class="fa fa-facebook"></i></a>
-                    </li>
-                    <li>
-                      <a href="#"><i class="fa fa-twitter"></i></a>
-                    </li>
-                    <li>
-                      <a href="#"><i class="fa fa-google"></i></a>
-                    </li>
-                    <li>
-                      <a href="#"><i class="fa fa-pinterest"></i></a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- end single footer -->
-          <div class="col-md-4 col-sm-4 col-xs-12">
-            <div class="footer-content">
-              <div class="footer-head">
-                <h4>information</h4>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.
-                </p>
-                <div class="footer-contacts">
-                  <p><span>Tel:</span> +123 456 789</p>
-                  <p><span>Email:</span> contact@example.com</p>
-                  <p><span>Working Hours:</span> 9am-5pm</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- end single footer -->
-          <div class="col-md-4 col-sm-4 col-xs-12">
-            <div class="footer-content">
-              <div class="footer-head">
-                <h4>Instagram</h4>
-                <div class="flicker-img">
-                  <a href="#"><img src="assets/img/portfolio/1.jpg" alt=""></a>
-                  <a href="#"><img src="assets/img/portfolio/2.jpg" alt=""></a>
-                  <a href="#"><img src="assets/img/portfolio/3.jpg" alt=""></a>
-                  <a href="#"><img src="assets/img/portfolio/4.jpg" alt=""></a>
-                  <a href="#"><img src="assets/img/portfolio/5.jpg" alt=""></a>
-                  <a href="#"><img src="assets/img/portfolio/6.jpg" alt=""></a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
     <div class="footer-area-bottom">
       <div class="container">
         <div class="row">
@@ -970,4 +442,8 @@
 
   <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 
-  
+</div>
+
+<ng-template #loading>
+  <app-loader></app-loader>
+</ng-template>

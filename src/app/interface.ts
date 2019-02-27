@@ -6,10 +6,9 @@ export interface WebData{
 
         home:{
             navbar:string;
-            imagen:string;
+            imagen:Array<{imagen:string}>;
             titulo:string;
             subtitulo:string;
-            botones:string;
         }
         
         about:{
@@ -25,32 +24,33 @@ export interface WebData{
             titulo:string;
             servicio:Array<{imagen:string,titulo:string,descripcion:string}>;
         }
-        estadisticas:Array<{grafica:string,titulo:string}>;
+        estadisticas:Array<{grafica:number,titulo:string}>;
 
         equipo:{
             navbar:string;
             titulo:string;
-            personas:Array<{imagen:string,titulo:string,subtitulo:string}>;
+            personas:Array<{imagen:string,titulo:string,subtitulo:string,twitter:string,facebook:string,instagram:string}>;
         }
         imagencontacto:{
             imagen:string;
-            Titulo:string;
-            subtitulo:string;
-            boton:string;
+            titulo:string;
+            subtitulo:string;   
         }
         galeria:{
             navbar:string;
+            titulo:string;
             imagenes:Array<{imagen:string,titulo:string,subtitulo:string}>
         }
         noticias:{
+            navbar:string;
             titulo:string;
-            noticia:Array<{imagen:string,titulo:string,descripcion:string,boton:string}>;
+            noticia:Array<{imagen:string,titulo:string,descripcion:string}>;
         }
         contacto:{
             navbar:string;
             titulo:string;
             telefono:string;
-            emai:string;
+            email:string;
             lugar:string;
         }
     }
