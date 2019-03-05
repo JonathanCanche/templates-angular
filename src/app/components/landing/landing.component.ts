@@ -21,6 +21,7 @@ private itemDoc: AngularFirestoreDocument<WebData>;
   }
 
   ngOnInit() {
+    
     this.routes.paramMap.subscribe(params => {
       const id = params.get('id');
       this.itemDoc = this.afs.doc<any>(`webs/${id}`);
@@ -43,4 +44,8 @@ private itemDoc: AngularFirestoreDocument<WebData>;
    console.log(this.data2);
    this.itemDoc.set(this.data2);
  }
+
+ scrollToElement($element): void {
+    $element.scrollIntoView({behavior: 'smooth', block: 'start'});
+  }
 }
