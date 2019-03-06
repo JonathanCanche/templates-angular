@@ -1,0 +1,92 @@
+//how many images we have
+$slides: 3;
+
+// how much we want each slide to show
+$time_per_slide: 7;
+
+// total time needed for full animation
+$total_animation_time: $time_per_slide * $slides;
+
+.slider-container {
+  background:#fff;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  position: relative;
+  height:650px;
+}
+
+.overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    transition: all .3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background: rgba(#000, 0.3);
+}
+
+.title {
+    color:white;
+}
+.photo {
+  position:absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  background-size:cover!important;
+  background-position: center!important;
+  background-repeat: no-repeat!important;
+  animation:round #{$total_animation_time}s infinite;
+  opacity:0;
+
+  div.slider-text {
+      position: absolute;
+      text-align: center;
+      top:50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      padding: 20px;
+    //   width: 35%;
+     &>*{
+         color:white;
+     } 
+  }
+}
+@keyframes round{   
+  25%{
+    opacity:1;
+  }
+  40%{
+    opacity:0;
+  }
+} 
+
+@for $index from 1 to $slides + 1{
+  .photo:nth-child(#{$index}){
+    animation-delay:#{$total_animation_time - $time_per_slide * $index}s
+  }
+}
+
+div.pyme {
+    // background: rgba(255,255,255,0.6); /* Old browsers */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    p {
+      font-size: 12px;
+      margin: 0;
+    }
+    img {
+      height: 50px;
+      width: auto;
+      text-align: center;
+    }
+    // margin-top:3.125rem;
+    padding: 10px;
+  }

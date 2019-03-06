@@ -10,13 +10,15 @@ import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AppRoutingModule } from './app-routing.module';
+import { StickyElementDirective } from './sticky-element.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     LandingComponent,
     LoaderComponent,
-    NofoundComponent
+    NofoundComponent,
+    StickyElementDirective
   ],
   imports: [
     BrowserModule,
