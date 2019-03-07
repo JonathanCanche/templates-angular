@@ -18,35 +18,28 @@
 									</button>
                 <!-- Brand -->
                 <a class="navbar-brand page-scroll sticky-logo" href="index.html">
-                  <h1><span>e</span>Business</h1>
+                  <!-- <h1><span>e</span>Business</h1>-->
                   <!-- Uncomment below if you prefer to use an image logo -->
-                  <!-- <img src="img/logo.png" alt="" title=""> -->
+                    <img src="{{data.icon}}" alt="" title="">
 								</a>
               </div>
               <!-- Collect the nav links, forms, and other content for toggling -->
               <div class="collapse navbar-collapse main-menu bs-example-navbar-collapse-1" id="navbar-example">
                 <ul class="nav navbar-nav navbar-right">
                   <li class="active">
-                    <a class="page-scroll" href="#home">{{data.secciones.home.navbar}}</a>
+                    <a (click)="scrollToElement(home)">{{data.secciones.home.navbar}}</a>
                   </li>
                   <li>
-                    <a class="page-scroll" href="#about">{{data.secciones.about.navbar}}</a>
+                    <a (click)="scrollToElement(about)">{{data.secciones.about.navbar}}</a>
                   </li>
                   <li>
-                    <a class="page-scroll" href="#services">{{data.secciones.servicios.navbar}}</a>
+                    <a (click)="scrollToElement(servicios)">{{data.secciones.servicios.navbar}}</a>
                   </li>
                   <li>
-                    <a class="page-scroll" href="#team">{{data.secciones.equipo.navbar}}</a>
+                    <a (click)="scrollToElement(galeria)">{{data.secciones.galeria.navbar}}</a>
                   </li>
                   <li>
-                    <a class="page-scroll" href="#portfolio">{{data.secciones.galeria.navbar}}</a>
-                  </li>
-
-                  <li>
-                    <a class="page-scroll" href="#blog">{{data.secciones.noticias.navbar}}</a>
-                  </li>
-                  <li>
-                    <a class="page-scroll" href="#contact">{{data.secciones.contacto.navbar}}</a>
+                    <a (click)="scrollToElement(contacto)">{{data.secciones.contacto.navbar}}</a>
                   </li>
                 </ul>
               </div>
@@ -63,11 +56,11 @@
 
   <!-- Start Slider Area -->
     <!-- <div class="bend niceties preview-2"> -->
-    <div class="slider-container">
+    <div #home class="slider-container">
       <div class="photo" *ngFor="let item of data.secciones.home.imagen"  [ngStyle]="{'background': 'url('+ item.imagen + ')'}">  
           <div class="overlay">              
-              <h2 class="title">{{data.secciones.home.subtitulo}}</h2>
-              <h1 class="title">{{data.secciones.home.titulo}}</h1>    
+              <h2 class="title">{{data.secciones.home.titulo}}</h2>
+              <h1 class="title">{{data.secciones.home.subtitulo}}</h1>    
           </div>
           </div>
     </div>
@@ -75,7 +68,7 @@
   <!-- End Slider Area -->
 
   <!-- Start About area -->
-  <div id="about" class="about-area area-padding">
+  <div #about id="about" class="about-area area-padding">
     <div class="container">
       <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12">
@@ -115,7 +108,7 @@
   <!-- End About area -->
 
   <!-- Start Service area -->
-  <div id="services" class="services-area area-padding">
+  <div #servicios id="services" class="services-area area-padding">
     <div class="container">
       <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12">
@@ -151,84 +144,6 @@
   </div>
   <!-- End Service area -->
 
-  <!-- our-grafica start -->
-  <div class="our-skill-area fix hidden-sm">
-    <div class="test-overly"></div>
-    <div class="skill-bg area-padding-2">
-      <div class="container">
-        <!-- section-heading end -->
-        <div class="row">
-          <div class="skill-text">
-            <!-- single-skill start -->
-            <div *ngFor="let landing of data.secciones.estadisticas" 
-            class="col-xs-12 col-sm-3 col-md-3 text-center">
-              <div class="single-skill">
-                <div class="progress-circular">
-                  <input type="text" class="knob" value="{{landing.grafica}}" data-rel="95" data-linecap="round" data-width="175" data-bgcolor="#fff" data-fgcolor="#3EC1D5" data-thickness=".20" data-readonly="true" disabled>
-                  <h3 class="progress-h4">{{landing.titulo}}</h3>
-                </div>
-              </div>
-            </div>
-            <!-- single-skill end -->
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- our-grafica end -->
-
-  <!-- Start team Area -->
-  <div id="team" class="our-team-area area-padding">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12 col-sm-12 col-xs-12">
-          <div class="section-headline text-center">
-            <h2>{{data.secciones.equipo.titulo}}</h2>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="team-top">
-          <div *ngFor="let landing of data.secciones.equipo.personas"
-          class="col-md-3 col-sm-3 col-xs-12">
-            <div class="single-team-member">
-              <div class="team-img">
-                <a href="#">
-										<img src="{{landing.imagen}}" alt="">
-									</a>
-                <div class="team-social-icon text-center">
-                  <ul>
-                    <li>
-                      <a href="{{landing.facebook}}">
-													<i class="fa fa-facebook"></i>
-												</a>
-                    </li>
-                    <li>
-                      <a href="{{landing.twitter}}">
-													<i class="fa fa-twitter"></i>
-												</a>
-                    </li>
-                    <li>
-                      <a href="{{landing.instagram}}}">
-													<i class="fa fa-instagram"></i>
-												</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <div class="team-content text-center">
-                <h4>{{landing.titulo}}</h4>
-                <p>{{landing.subtitulo}}</p>
-              </div>
-            </div>
-          </div>
-         
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- End Team Area -->
-
   <!-- Start reviews Area -->
   <div class="reviews-area hidden-xs">
     <div class="work-us">
@@ -247,7 +162,7 @@
   <!-- End reviews Area -->
 
   <!-- Start galeria Area -->
-  <div id="portfolio" class="portfolio-area area-padding fix">
+  <div #galeria id="portfolio" class="portfolio-area area-padding fix">
     <div class="container">
       <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -294,7 +209,7 @@
  
 
   <!-- Start contact Area -->
-  <div id="contact" class="contact-area">
+  <div #contacto id="contact" class="contact-area">
     <div class="contact-inner area-padding">
       <div class="contact-overly"></div>
       <div class="container ">
