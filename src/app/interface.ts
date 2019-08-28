@@ -24,13 +24,7 @@ export interface WebData{
             titulo:string;
             servicio:Array<{imagen:string,titulo:string,descripcion:string}>;
         }
-        estadisticas:Array<{grafica:number,titulo:string}>;
-
-        equipo:{
-            navbar:string;
-            titulo:string;
-            personas:Array<{imagen:string,titulo:string,subtitulo:string,twitter:string,facebook:string,instagram:string}>;
-        }
+       
         imagencontacto:{
             imagen:string;
             titulo:string;
@@ -39,12 +33,7 @@ export interface WebData{
         galeria:{
             navbar:string;
             titulo:string;
-            imagenes:Array<{imagen:string,titulo:string,subtitulo:string}>
-        }
-        noticias:{
-            navbar:string;
-            titulo:string;
-            noticia:Array<{imagen:string,titulo:string,descripcion:string}>;
+            imagenes:Array<{imagen:string,titulo:string,descripcion:string}>
         }
         contacto:{
             navbar:string;

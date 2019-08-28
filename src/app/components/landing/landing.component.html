@@ -10,36 +10,31 @@
             <nav class="navbar navbar-default">
               <!-- Brand and toggle get grouped for better mobile display -->
               <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".bs-example-navbar-collapse-1" aria-expanded="false">
+                <button  #navbar_li type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".bs-example-navbar-collapse-1" aria-expanded="false">
 										<span class="sr-only">Toggle navigation</span>
 										<span class="icon-bar"></span>
 										<span class="icon-bar"></span>
 										<span class="icon-bar"></span>
 									</button>
                 <!-- Brand -->
-                <a class="navbar-brand page-scroll sticky-logo" href="index.html">
-                  <!-- <h1><span>e</span>Business</h1>-->
-                  <!-- Uncomment below if you prefer to use an image logo -->
-                    <img src="{{data.icon}}" alt="" title="">
-								</a>
               </div>
               <!-- Collect the nav links, forms, and other content for toggling -->
               <div class="collapse navbar-collapse main-menu bs-example-navbar-collapse-1" id="navbar-example">
                 <ul class="nav navbar-nav navbar-right">
-                  <li class="active">
-                    <a (click)="scrollToElement(home)">{{data.secciones.home.navbar}}</a>
+                  <li #home_li class="active">
+                    <a (click)="scrollToElement(home,'home')">Inicio</a>
                   </li>
-                  <li>
-                    <a (click)="scrollToElement(about)">{{data.secciones.about.navbar}}</a>
+                  <li #about_li>
+                    <a (click)="scrollToElement(about,'about')">Nosotros</a>
                   </li>
-                  <li>
-                    <a (click)="scrollToElement(servicios)">{{data.secciones.servicios.navbar}}</a>
+                  <li #servicios_li>
+                    <a (click)="scrollToElement(servicios,'servicios')">Servicios</a>
                   </li>
-                  <li>
-                    <a (click)="scrollToElement(galeria)">{{data.secciones.galeria.navbar}}</a>
+                  <li #portafolio_li>
+                    <a (click)="scrollToElement(galeria,'portafolio')">Portafolio</a>
                   </li>
-                  <li>
-                    <a (click)="scrollToElement(contacto)">{{data.secciones.contacto.navbar}}</a>
+                  <li #contact_li>
+                    <a (click)="scrollToElement(contacto,'contact')">Contacto</a>
                   </li>
                 </ul>
               </div>
@@ -81,10 +76,10 @@
         <!-- single-well start-->
         <div class="col-md-6 col-sm-6 col-xs-12">
           <div class="well-left">
-            <div class="single-well">
-              <a href="#">
+            <div class="centrar-img single-well">
+              <div>
 								  <img src="{{data.secciones.about.imagen}}" alt="">
-								</a>
+              </div>
             </div>
           </div>
         </div>
@@ -92,9 +87,7 @@
         <div class="col-md-6 col-sm-6 col-xs-12">
           <div class="well-middle">
             <div class="single-well">
-              <a >
                 <h4 class="sec-head">{{data.secciones.about.subtitulo}}</h4>
-              </a>
               <p>
                 {{data.secciones.about.descripcion}}
               </p>
@@ -125,11 +118,11 @@
             <div class="about-move">
               <div class="services-details">
                 <div class="single-services">
-                  <a href="#">
-                    <img src="{{landing.imagen}}" alt="">
-                  </a>
-                  <h4>{{landing.titulo}}</h4>
-                  <p>{{landing.descripcion}}</p>
+                  <div class="services-icon">
+                    <i class="fa fa-diamond"></i>
+                  </div>
+                  <h4 class="no-pointer">{{landing.titulo}}</h4>
+                  <p class="no-pointer">{{landing.descripcion}}</p>
                 </div>
               </div>
               <!-- end about-details -->
@@ -148,14 +141,13 @@
   <div class="reviews-area hidden-xs">
     <div class="work-us">
       <div class="work-left-text">
-        <a href="#">
-						<img src="{{data.secciones.imagencontacto.imagen}}" alt="">
-					</a>
+        <div>
+						<img class="img-contac" src="{{data.secciones.imagencontacto.imagen}}" alt="">
+        </div>
       </div>
       <div class="work-right-text text-center">
         <h2>{{data.secciones.imagencontacto.titulo}}</h2>
         <h5>{{data.secciones.imagencontacto.subtitulo}}</h5>
-        <a href="#contact" class="ready-btn">Contact us</a>
       </div>
     </div>
   </div>
@@ -184,10 +176,10 @@
                 <a href="#"><img src="{{landing.imagen}}" alt="" /></a>
                 <div class="add-actions text-center">
                   <div class="project-dec">
-                    <a class="venobox" data-gall="myGallery" href="{{landing.imagen}}">
+                    <div class="venobox" data-gall="myGallery">
                       <h4>{{landing.titulo}}</h4>
-                      <span>{{landing.subtitulo}}</span>
-                    </a>
+                      <span>{{landing.descripcion}}</span>
+                    </div>
                   </div>
                 </div>
               </div>

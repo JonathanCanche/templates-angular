@@ -16,6 +16,24 @@ $total_animation_time: $time_per_slide * $slides;
   height:650px;
 }
 
+.img-contac{
+    object-fit: cover!important;
+    width: 100%!important;
+}
+
+a{
+  cursor: pointer;
+}
+.centrar-img{
+  display: flex;
+    justify-content: center;
+}
+.name-id{
+  padding: 20px 15px!important;
+}
+.no-pointer{
+  cursor: default!important;
+}
 .overlay {
     position: absolute;
     left: 0;
