@@ -1003,7 +1003,7 @@ div#preloader {
 /*--------------------------------*/
 
 .reviews-area {
-  background: url(../img/background/bg1.jpg);
+ /* background: url(../img/background/bg1.jpg);*/
   overflow: hidden;
   background-repeat: no-repeat;
   background-size: cover;
@@ -1025,13 +1025,13 @@ div#preloader {
 .work-right-text {
   background: rgba(0, 0, 0, 0.8) none repeat scroll 0 0;
   float: right;
-  height: 100%;
+  height:450px;
   overflow: hidden;
   padding: 71px 0;
   width: 50%;
   position: absolute;
   right: 0;
-  top: 0;
+  /*top: 0;*/
 }
 
 .work-right-text h2 {
@@ -1157,7 +1157,7 @@ div#preloader {
 }
 
 .add-actions {
-  background: rgba(0, 0, 0, 0.6) none repeat scroll 0 0;
+  /* background: rgba(0, 0, 0, 0.6) none repeat scroll 0 0; */
   bottom: 30px;
   display: block;
   height: 100%;

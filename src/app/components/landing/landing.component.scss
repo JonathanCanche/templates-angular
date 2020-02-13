@@ -8,7 +8,7 @@ $time_per_slide: 7;
 $total_animation_time: $time_per_slide * $slides;
 
 .slider-container {
-  background:#fff;
+  background:#0a0a0a;
   padding: 0;
   margin: 0;
   overflow: hidden;
@@ -16,9 +16,44 @@ $total_animation_time: $time_per_slide * $slides;
   height:650px;
 }
 
+.img-all{
+  width: 350px;
+  height: 250px;
+  border-radius: 2px;
+  object-fit: cover;
+}
+
+.img-contact-d{
+  position: relative;
+  
+}
+
+.container-img-contact{
+  display: flex;
+}
+
 .img-contac{
     object-fit: cover!important;
     width: 100%!important;
+    height: 450px;
+}
+
+@media (min-width: 992px) and (max-width: 1169px) {
+  .img-contac {
+    height: 240px!important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .img-contac {
+    height: 240px!important;
+  }
+}
+
+.img-portafolio{
+    width: 300px;
+    object-fit: cover;
+    height: 250px;
 }
 
 a{
@@ -50,6 +85,7 @@ a{
 
 .title {
     color:white;
+    text-align: center;
 }
 .photo {
   position:absolute;
@@ -108,3 +144,17 @@ div.pyme {
     // margin-top:3.125rem;
     padding: 10px;
   }
+
+  .icons-social{
+    display: flex;
+    justify-content: center;
+    font-size:32px;
+    :hover{
+      color: #004289!important;
+      font-size: 32.5px!important;
+    }
+
+    .item-social{
+      margin-right: 20px;
+    }
+  }  

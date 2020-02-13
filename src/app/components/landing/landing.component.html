@@ -22,19 +22,19 @@
               <div class="collapse navbar-collapse main-menu bs-example-navbar-collapse-1" id="navbar-example">
                 <ul class="nav navbar-nav navbar-right">
                   <li #home_li class="active">
-                    <a (click)="scrollToElement(home,'home')">Inicio</a>
+                    <a (click)="scrollToElement(home,'home')">{{data.secciones.home.navbar}}</a>
                   </li>
                   <li #about_li>
-                    <a (click)="scrollToElement(about,'about')">Nosotros</a>
+                    <a (click)="scrollToElement(about,'about')">{{data.secciones.about.titulo}}</a>
                   </li>
                   <li #servicios_li>
-                    <a (click)="scrollToElement(servicios,'servicios')">Servicios</a>
+                    <a (click)="scrollToElement(servicios,'servicios')">{{data.secciones.servicios.titulo}}</a>
                   </li>
                   <li #portafolio_li>
-                    <a (click)="scrollToElement(galeria,'portafolio')">Portafolio</a>
+                    <a (click)="scrollToElement(galeria,'portafolio')">{{data.secciones.galeria.navbar}}</a>
                   </li>
                   <li #contact_li>
-                    <a (click)="scrollToElement(contacto,'contact')">Contacto</a>
+                    <a (click)="scrollToElement(contacto,'contact')">{{data.secciones.contacto.navbar}}</a>
                   </li>
                 </ul>
               </div>
@@ -78,7 +78,7 @@
           <div class="well-left">
             <div class="centrar-img single-well">
               <div>
-								  <img src="{{data.secciones.about.imagen}}" alt="">
+								  <img class="img-all" src="{{data.secciones.about.imagen}}" alt="">
               </div>
             </div>
           </div>
@@ -138,17 +138,16 @@
   <!-- End Service area -->
 
   <!-- Start reviews Area -->
-  <div class="reviews-area hidden-xs">
-    <div class="work-us">
-      <div class="work-left-text">
-        <div>
-						<img class="img-contac" src="{{data.secciones.imagencontacto.imagen}}" alt="">
-        </div>
-      </div>
-      <div class="work-right-text text-center">
-        <h2>{{data.secciones.imagencontacto.titulo}}</h2>
-        <h5>{{data.secciones.imagencontacto.subtitulo}}</h5>
-      </div>
+  <div class="container-img-contact hidden-xs">
+    <div style="width: 50%">
+      <img class="img-contac" src="{{data.secciones.imagencontacto.imagen}}" alt="">
+    </div>
+    <div style="width: 50%">
+      <img class="img-contac" src="{{data.secciones.imagencontacto.imagendos}}" alt="">
+    </div>
+    <div class="work-right-text text-center">
+      <h2>{{data.secciones.imagencontacto.titulo}}</h2>
+      <h5>{{data.secciones.imagencontacto.subtitulo}}</h5>
     </div>
   </div>
   <!-- End reviews Area -->
@@ -159,21 +158,19 @@
       <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
           <div class="section-headline text-center">
-            <h2>{{data.secciones.galeria.titulo}}</h2>
+            <h2>{{data.secciones.galeria.navbar}}</h2>
           </div>
         </div>
       </div>
       <div class="row">
         <!-- Start Portfolio -page -->
         <div class="awesome-project-content">
-
-
           <!-- single-awesome-project start -->
           <div *ngFor="let landing of data.secciones.galeria.imagenes" 
           class="col-md-4 col-sm-4 col-xs-12 design development">
             <div class="single-awesome-project">
               <div class="awesome-img">
-                <a href="#"><img src="{{landing.imagen}}" alt="" /></a>
+                <a href="#"><img class="img-portafolio" src="{{landing.imagen}}" alt="" /></a>
                 <div class="add-actions text-center">
                   <div class="project-dec">
                     <div class="venobox" data-gall="myGallery">
@@ -186,12 +183,6 @@
             </div>
           </div>
           <!-- single-awesome-project end -->
-
-
-         
-
-
-
         </div>
       </div>
     </div>
@@ -208,7 +199,7 @@
         <div class="row">
           <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="section-headline text-center">
-              <h2>{{data.secciones.contacto.titulo}}</h2>
+              <h2>{{data.secciones.contacto.navbar}}</h2>
             </div>
           </div>
         </div>
@@ -219,7 +210,7 @@
               <div class="single-icon">
                 <i class="fa fa-mobile"></i>
                 <p>
-                  Teléfono:{{data.secciones.contacto.telefono}}<br>
+                  Teléfono: {{data.secciones.contacto.telefono}}<br>
                 </p>
               </div>
             </div>
@@ -248,6 +239,19 @@
           </div>
         </div>
       </div>
+
+      <div class="icons-social">
+        <div class="item-social info">
+          <a href="{{data.secciones.contacto.facebook}}" target="_blank"><i class="fa fa-facebook"></i></a>
+        </div>
+        <div class="item-social info">
+          <a href="{{data.secciones.contacto.twitter}}" target="_blank"><i class="fa fa-twitter"></i></a>
+        </div>
+        <div class="item-social info">
+          <a href="{{data.secciones.contacto.instagram}}" target="_blank"><i class="fa fa-instagram"></i></a>
+        </div>
+        
+      </div>
     </div>
   </div>
   <!-- End Contact Area -->
@@ -258,7 +262,7 @@
         <div class="pyme" >     
             <p>Generado por</p>
             <a href="http://solucionescolabora.com/desarrollos/pymeassistant" target="_blank"> <img src="assets/pyme_logo.png" alt=""></a>
-    </div>
+        </div>
     </div>
   </footer>
 

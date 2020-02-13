@@ -28,7 +28,8 @@ export interface WebData{
         imagencontacto:{
             imagen:string;
             titulo:string;
-            subtitulo:string;   
+            subtitulo:string;
+            imagendos:string;   
         }
         galeria:{
             navbar:string;
@@ -41,6 +42,9 @@ export interface WebData{
             telefono:string;
             email:string;
             lugar:string;
+            facebook:string;
+            twitter:string;
+            instagram:string;
         }
     }
 }
